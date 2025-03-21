@@ -12,16 +12,15 @@ function preload() {
 
 function setup() {
     createCanvas(640, 480);
-    video = createCapture(VIDEO);
+    video = createCapture(VIDEO, {
+        flipped: true
+    });
     video.size(640, 480);
     video.hide();
     faceMesh.detectStart(video, gotFaces);
 }
 
 function draw() {
-    push();
-    translate(width, 0);
-    scale(-1, 1);
     image(video, 0, 0, width, height);
     pop();
 
